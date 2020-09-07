@@ -24,5 +24,7 @@ impl MineGame {
 
 
 fn main() {
-    println!("Hello, world!");
+    let mine = MineGame {
+        side: 3,
+    }
 }
