@@ -1,52 +1,51 @@
-use std::io;
-use std::time::Duration;
-
-const BEGINNER :i32 = 0;
-const INTERMEDIATE :i32 = 1;
-const ADVANCED :i32 = 2;
-const MAXSIDE :i32 = 25;
-const MAXMINES :i32 = 99;
-const MOVESIZE :i32 = 526;
-//stroes player info
-pub struct Player {
-    name: String,
-    age: u8,
-    time: Duration,
-    //wins in one game = 1 point
-    score: i32,
-}
+#[derive(Debug, Copy, Clone)]
 
 pub struct MineGame {
-    side :i32,
-    mines :i32,
-    player: Player,
-} 
-
-pub struct RealBoard{
-    side: i32,
+    width: i32,
+    height: i32,
     mines: i32,
 }
+#[!allow(unused_varaiables)]
 
+const BEGINNER :MineGame = MineGame {
+    width: 9,
+    height: 9,
+    mines: 10,
+};
+const INTERMEDIATE :MineGame = MineGame {
+    width: 16,
+    height: 16,
+    mines: 40,
+};
 
+const ADVANCED :MineGame = MineGame {
+    width: 24,
+    height: 24,
+    mines: 99,
+};
 
 impl MineGame {
-    pub fn is_valid(&self, row: i32, col :i32) -> bool {
-        if (row >= 0 && row < self.side) && (col >= 0 && col < self.side) {
-            return true;
-        } else {
-            return false;
+    
+    fn game_level(level: i8) -> MineGame {
+        match level {
+            0 => BEGINNER,
+            1 => INTERMEDIATE,
+            2 => ADVANCED,
+            _ => panic!("Invalid input. 
+            Try 0-> Beginner
+                1-> Intermediate
+                2-> Advanced"),
         }
-    }
-
-    pub fn choose_difficulty(level: String) -> MineGame {
 
     }
-    pub fn cheat_minesweeper() ->
+
+
 }
 
+pub struct PlayBoard {
+    
+}
 
 fn main() {
-    let mine = MineGame {
-        side: 3,
-    }
+
 }
