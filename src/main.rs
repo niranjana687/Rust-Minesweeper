@@ -4,8 +4,15 @@ pub struct MineGame {
     width: i32,
     height: i32,
     mines: i32,
+
 }
-#[!allow(unused_varaiables)]
+
+pub enum Cell {
+    Empty,
+    Mine,
+    MineNeighbor {count: u8},
+}
+#[allow(unused_varaiables)]
 
 const BEGINNER :MineGame = MineGame {
     width: 9,
@@ -47,5 +54,18 @@ pub struct PlayBoard {
 }
 
 fn main() {
+ println!(" \tM I N E S W E E P E E R\n
+            \n
+            COMMANDS: 
+            \n
+            row col -> reveal row, col\n
+            m row col-> mark row, col\n
+            q-> quit\n
+            n-> new game\n
+            b-> Beginner\n
+            i-> Intermediate\n
+            a-> Advanced\n
 
+
+ ");
 }
