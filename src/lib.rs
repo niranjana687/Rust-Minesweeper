@@ -1,9 +1,15 @@
-pub mod minesweepr {
+// pub mod minesweepr {
 
-    pub struct MineSweeper {
-        
-    }
+//     pub struct MineSweeper {
+//         mine: Mine
+//     }
+
+//     pub enum Cell{
+//         Empty 
+//     }
+//     pub enum Mine{
+//         mine: bool
+//     }
 
 
-
-}
+// }
