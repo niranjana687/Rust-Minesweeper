@@ -1,15 +1,13 @@
-// pub mod minesweepr {
+pub mod Minesweeper {
 
-//     pub struct MineSweeper {
-//         mine: Mine
-//     }
+    pub struct GameBoard{
+        rows: u8,
+        cols: u8,
+        mines: u8,
 
-//     pub enum Cell{
-//         Empty 
-//     }
-//     pub enum Mine{
-//         mine: bool
-//     }
+    }
 
+    
 
-// }
+    
+}

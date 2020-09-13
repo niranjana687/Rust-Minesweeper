@@ -1,3 +1,7 @@
+use std::env;
+use rand::prelude::*;
+use std::hash;
+
 #[derive(Debug)]
 
 pub struct MineGame {
@@ -7,45 +11,52 @@ pub struct MineGame {
 }
 
 impl MineGame {
-    fn game_level(level: i8) -> Self {
-        match level {
-            0 => Self::beginner(),
-            1 => Self::intermediate(),
-            2 => Self::advanced(),
-            _ => panic!(
-                "Invalid input. 
-            Try 0-> Beginner
-                1-> Intermediate
-                2-> Advanced"
-            ),
+    
+    pub fn game_print(&self) {
+        for _ in 0..self.row {
+            for _ in 1..self.column{
+                print!(".");
+            }println!(".");
         }
     }
 
-    const fn beginner() -> Self {
-        Self {
-            row: 9,
-            column: 9,
-            mines: 10,
-        }
+    pub fn mine_generate(&self){
+        //rows
+        let mut rng_r = rand::thread_rng();
+        let x: f64 = rng_r.gen();
+        let mut r :Vec<i32> = (1..10).collect();
+        r.shuffle(&mut rng_r);
+
+        //columns
+        let mut rng_c = rand::thread_rng();
+        let y: f64 = rng_c.gen();
+        let mut c :Vec<i32> = (1..10).collect();
+        c.shuffle(&mut rng_c);
+
+
+
+
+
     }
 
-    const fn intermediate() -> Self {
-        Self {
-            row: 16,
-            column: 16,
-            mines: 40,
-        }
-    }
-
-    const fn advanced() -> Self {
-        Self {
-            row: 24,
-            column: 24,
-            mines: 99,
-        }
-    }
+    
 }
 
 pub struct PlayBoard {}
 
-fn main() {}
+fn main() {
+    let game = MineGame {
+        row: 9,
+        column: 9,
+        mines: 10,
+    };
+    println!("\t\t M I N E S W E E P E R ");
+    game.game_print();
+    println!();
+    println!("\tThe number of mines to be found: {}", game.mines);
+    println!("\tThe rules of game is as follows\n\t- m  row column:  marks mine\n\t-row column: marks free space");
+    
+
+
+
+}
