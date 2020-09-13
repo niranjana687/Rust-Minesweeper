@@ -1,6 +1,6 @@
 use std::env;
 use rand::prelude::*;
-use std::hash;
+use std::collections::HashMap;
 
 #[derive(Debug)]
 
@@ -20,7 +20,7 @@ impl MineGame {
         }
     }
 
-    pub fn mine_generate(&self){
+    pub fn mine_generate(&self) -> HashMap<i32,i32 > {
         //rows
         let mut rng_r = rand::thread_rng();
         let x: f64 = rng_r.gen();
@@ -33,9 +33,10 @@ impl MineGame {
         let mut c :Vec<i32> = (1..10).collect();
         c.shuffle(&mut rng_c);
 
-
-
-
+        //mine grids
+        let mut mine_grid: HashMap<_,_> =
+            r.into_iter().zip(c.into_iter()).collect();
+        mine_grid
 
     }
 
