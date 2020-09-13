@@ -55,7 +55,8 @@ fn main() {
     game.game_print();
     println!();
     println!("\tThe number of mines to be found: {}", game.mines);
-    println!("\tThe rules of game is as follows\n\t- m  row column:  marks mine\n\t-row column: marks free space");
+    println!("\tThe rules of game is as follows\n\t-m  row column:  marks mine\n\t-row column: marks free space");
+    println!("\t-If you need to reveal the mines before you play, there is a quick option 🙊. Type \"cheat\"");  
     
 
 
