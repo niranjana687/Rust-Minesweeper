@@ -36,14 +36,51 @@ impl MineGame {
         //mine grids
         let mut mine_grid: HashMap<_,_> =
             r.into_iter().zip(c.into_iter()).collect();
-        mine_grid
+        
+        return mine_grid;
 
     }
 
     
+    
 }
 
-pub struct PlayBoard {}
+pub struct PlayBoard {
+    row_mines: HashMap<i32, i32>,
+
+}
+
+impl PlayBoard {
+    pub fn cheat_mine(&mut self, game: MineGame) {
+
+        let mut rows = vec![];
+        let mut col = vec![];
+
+        let mine_grid = game.mine_generate();
+        for (r,c) in mine_grid.iter() {
+            rows.push(r);
+            col.push(c);
+        } 
+        
+        for i in 0..game.row {
+            for j in 0..game.column {
+                for (key, val) in mine_grid.iter(){
+                    if (*key,*val) == (i,j) {
+                        print!("*");
+                    } else {
+                        print!(".");
+                    }println!(".");
+                }
+                
+            }
+        }
+
+       
+        
+
+
+    }
+}
 
 fn main() {
     let game = MineGame {
@@ -57,6 +94,11 @@ fn main() {
     println!("\tThe number of mines to be found: {}", game.mines);
     println!("\tThe rules of game is as follows\n\t-m  row column:  marks mine\n\t-row column: marks free space");
     println!("\t-If you need to reveal the mines before you play, there is a quick option 🙊. Type \"cheat\"");  
+    let mines = game.mine_generate();
+    let mut current_game = PlayBoard {
+        row_mines: mines,
+    };
+    current_game.cheat_mine(game);
     
 
 
