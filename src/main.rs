@@ -67,19 +67,15 @@ impl PlayBoard {
                 for (key, val) in mine_grid.iter(){
                     if (*key,*val) == (i,j) {
                         print!("*");
-                    } else {
-                        print!(".");
-                    }println!(".");
-                }
+                    } 
+                }print!(".");
                 
-            }
+            }println!(".");
         }
 
-       
-        
-
-
     }
+
+  
 }
 
 fn main() {
