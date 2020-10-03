@@ -1,6 +1,7 @@
 use std::env;
 use rand::prelude::*;
 use std::collections::HashMap;
+use std::io::{self};
 
 #[derive(Debug)]
 
@@ -75,6 +76,10 @@ impl PlayBoard {
 
     }
 
+    pub fn game_click(input: String) {
+
+    }
+
   
 }
 
@@ -91,10 +96,12 @@ fn main() {
     println!("\tThe rules of game is as follows\n\t-m  row column:  marks mine\n\t-row column: marks free space");
     println!("\t-If you need to reveal the mines before you play, there is a quick option 🙊. Type \"cheat\"");  
     let mines = game.mine_generate();
+    println!("{:?}", mines);
     let mut current_game = PlayBoard {
         row_mines: mines,
     };
     current_game.cheat_mine(game);
+    
     
 
 
